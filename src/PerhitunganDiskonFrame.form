@@ -189,17 +189,18 @@
                   <Font name="Myanmar Text" size="12" style="1"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="10">
-                    <StringItem index="0" value="10%"/>
-                    <StringItem index="1" value="20%"/>
-                    <StringItem index="2" value="30%"/>
-                    <StringItem index="3" value="40%"/>
-                    <StringItem index="4" value="50%"/>
-                    <StringItem index="5" value="60%"/>
-                    <StringItem index="6" value="70%"/>
-                    <StringItem index="7" value="80%"/>
-                    <StringItem index="8" value="90%"/>
-                    <StringItem index="9" value="100%"/>
+                  <StringArray count="11">
+                    <StringItem index="0" value="0%"/>
+                    <StringItem index="1" value="10%"/>
+                    <StringItem index="2" value="20%"/>
+                    <StringItem index="3" value="30%"/>
+                    <StringItem index="4" value="40%"/>
+                    <StringItem index="5" value="50%"/>
+                    <StringItem index="6" value="60%"/>
+                    <StringItem index="7" value="70%"/>
+                    <StringItem index="8" value="80%"/>
+                    <StringItem index="9" value="90%"/>
+                    <StringItem index="10" value="100%"/>
                   </StringArray>
                 </Property>
               </Properties>

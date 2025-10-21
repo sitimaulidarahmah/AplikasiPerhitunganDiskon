@@ -31,7 +31,7 @@ public class PerhitunganDiskonFrame extends javax.swing.JFrame {
         sldDiskon.setMajorTickSpacing(10);
         sldDiskon.setMinorTickSpacing(5);
         sldDiskon.setMaximum(100);
-        sldDiskon.setValue(10);
+        sldDiskon.setValue(0);
 
         cmbDiskon.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
@@ -43,6 +43,16 @@ public class PerhitunganDiskonFrame extends javax.swing.JFrame {
         sldDiskon.addChangeListener(e -> {
             cmbDiskon.setSelectedItem(sldDiskon.getValue() + "%");
         });
+        
+        txtHargaAsli.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != '.' && c != ',' && c != '\b') {
+            evt.consume(); // menolak input selain angka, titik, koma
+        }
+    }
+});
+
     }
 
     /**
@@ -102,7 +112,7 @@ public class PerhitunganDiskonFrame extends javax.swing.JFrame {
         lblDiskon.setText("Persentase Diskon");
 
         cmbDiskon.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
-        cmbDiskon.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%" }));
+        cmbDiskon.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%" }));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Slider");
@@ -394,7 +404,9 @@ public class PerhitunganDiskonFrame extends javax.swing.JFrame {
 
     private void btnHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHitungActionPerformed
         try {
-            double hargaAsli = Double.parseDouble(txtHargaAsli.getText());
+            String inputHarga = txtHargaAsli.getText().replace(".", "").replace(",", ".");
+            double hargaAsli = Double.parseDouble(inputHarga);
+
             int persenDiskon = sldDiskon.getValue();
 
             String selected = (String) cmbDiskon.getSelectedItem();
